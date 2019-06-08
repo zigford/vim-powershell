@@ -6,6 +6,7 @@
 " Project Repository: https://github.com/zigford/vim-powershell
 " Vim Script Page:    TBA
 "
-
-au BufNewFile,BufRead   *.cdxml    set ft=xml
-au BufNewFile,BufRead   *.psc1     set ft=xml
+au BufNewFile,BufRead   *.ps1   set ft=powershell
+au BufNewFile,BufRead   *.psd1  set ft=powershell
+au BufNewFile,BufRead   *.psm1  set ft=powershell
+au BufNewFile,BufRead   *.pssc  set ft=powershell

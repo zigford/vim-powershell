@@ -1,9 +1,11 @@
 " Vim syntax file
-" Language:           Windows PowerShell XML
+" Language:           Windows PowerShell
 " Maintainer:         Peter Provost <peter@provost.org>
-" Version:            2.10
-" Project Repository: https://github.com/PProvost/vim-ps1
-" Vim Script Page:    http://www.vim.org/scripts/script.php?script_id=1327"
+" Updated:            Jesse Harris <jesse@zigford.org>
+" Version:            3.00
+" Project Repository: https://github.com/zigford/vim-powershell
+" Vim Script Page:    TBA
+"
 
 " Compatible VIM syntax file start
 if version < 600
@@ -19,7 +21,7 @@ doau syntax xml
 unlet b:current_syntax
 
 syn case ignore
-syn include @ps1xmlScriptBlock <sfile>:p:h/ps1.vim
+syn include @ps1xmlScriptBlock <sfile>:p:h/powershell.vim
 unlet b:current_syntax
 
 syn region ps1xmlScriptBlock
@@ -49,7 +51,7 @@ syn region ps1xmlScriptBlock
 
 syn cluster xmlRegionHook add=ps1xmlScriptBlock
 
-let b:current_syntax = "ps1xml"
+let b:current_syntax = "powershellxml"
 
 let &cpo = s:ps1xml_cpo_save
 unlet s:ps1xml_cpo_save

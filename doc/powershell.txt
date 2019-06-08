@@ -1,0 +1,39 @@
+*powershell.txt*  A PowerShell syntax plugin for Vim
+
+Maintainer: Jesse Harris <https://www.github.com/zigford>
+Credit:     Peter Provost <https://www.github.com/PProvost>
+License:    Apache 2.0
+Version:    3.00
+
+INTRODUCTION                                            *powershell-syntax*
+
+This plugin provides Vim syntax, indent and filetype detection for PowerShell
+scripts, modules, and XML configuration files.
+
+
+ABOUT                                                    *powershell-about*
+
+Grab the latest version or report a bug on GitHub:
+
+https://github.com/zigford/vim-powershell
+
+
+FOLDING                                                *powershell-folding*
+
+The powershell syntax file provides syntax folding (see |:syn-fold|) for script
+blocks and digital signatures in scripts.
+
+When 'foldmethod' is set to "syntax" then function script blocks will be
+folded unless you use the following in your .vimrc or before opening a script: >
+
+    :let g:powershell_nofold_blocks = 1
+<
+Digital signatures in scripts will also be folded unless you use: >
+
+    :let g:powershell_nofold_sig = 1
+<
+Note: syntax folding might slow down syntax highlighting significantly,
+especially for large files.
+
+------------------------------------------------------------------------------
+ vim:ft=help:

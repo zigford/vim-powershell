@@ -1,11 +1,38 @@
-ps1.vim
-=======
+powershell.vim
+==============
+
+This is a fork of [PProvost/vim-ps1][2]. I've decided to fork Peter's project
+mostly due how the original project chose to set the vim filetype to `ps1`.
+Another user created an issue requesting it be changed to powershell, but
+that was rejected.
+
+My main reason for wanting the filetype to be `powershell` is in association
+with the [w0rp/ale][4] (A vim plugin which brings linting support to many
+languages). In Ale, it did not seem fitting to create the powershell support to
+work with a filetype `ps1` where all other filetypes are set based on the
+language name, not the file extension.
+
+Thank-you to Peter and all other contributors of the original vim-ps1 project.
+
+Changes from vim-ps1
+--------------------
+
+* Renamed filetype from ps1 to powershell
+* Replaced indentation script with script from [Lior Elia][5].
+* Added compiler settings, so a powershell script can be parsed with `:make`
+
+Thanks to Lior Elia for the indentation script and Enno Nagel for the
+suggestions on how to setup errorformat and makeprg in a filetype plugin. See
+[here][6] for info on that.
+
+Original Readme
+---------------
 
 If you are a Windows PowerShell user who uses Vim or Gvim for editing scripts, 
 then this plugin is for you.
 
-It provides nice syntax coloring and indenting for Windows PowerShell (.ps1)
-files, and also includes a filetype plugin so Vim can autodetect your PS1 scripts.
+It provides nice syntax coloring and indenting for PowerShell (.ps1) files,
+and also includes a filetype plugin so Vim can autodetect your PS1 scripts.
 
 Includes contributions by:
 
@@ -23,12 +50,12 @@ Copy the included directories into your .vim or vimfiles directory.
 Or even better, use [pathogen.vim][1] and simply pull it in like this:
 
     cd ~/.vim/bundle
-    git clone https://github.com/PProvost/vim-ps1.git
+    git clone https://github.com/zigford/vim-powershell.git
 
 Folding
 -------
 
-The ps1 syntax file provides syntax folding for script blocks and digital 
+The powershell syntax file provides syntax folding for script blocks and digital 
 signatures in scripts.
 
 When 'foldmethod' is set to "syntax" then function script blocks will be
@@ -46,8 +73,7 @@ especially for large files.
 Comments and Suggestions
 ------------------------
 
-Please follow, fork or submit issues on [GitHub][2] and if you
-find it useful, please vote for it on [vim.org][3].
+Please follow, fork or submit issues on [GitHub][7]
 
 License
 -------
@@ -83,8 +109,12 @@ Version History
 * v2.0  (2005-12-21) Big update from Jared Parsons
 * v1.3  (2005-12-20) Updates to syntax elements
 * v1.2  (2005-08-13) Fix foreach and while problem
-* v1.1 (2005-08-12) Initial release
+* v1.1  (2005-08-12) Initial release
 
 [1]: https://github.com/tpope/vim-pathogen
 [2]: https://github.com/PProvost/vim-ps1
 [3]: http://www.vim.org/scripts/script.php?script_id=1327
+[4]: https://github.com/w0rp/ale
+[5]: https://www.vim.org/scripts/script.php?script_id=2800
+[6]: http://zigford.org/vim-quickfix-and-powershell.html
+[7]: https://github.com/zigford/vim-powershell
