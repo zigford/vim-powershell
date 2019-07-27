@@ -17,14 +17,14 @@ let s:cpo_save = &cpo
 set cpo&vim
 
 if has('win32')
-    set makeprg=powershell\ -NoProfile\ -command\ \"&{
+    set makeprg=powershell\ -NoProfile\ -NoLogo\ -NonInteractive\ -command\ \"&{
         \trap{$_.tostring();continue}&{
         \$c=gc\ '%';$c=[string]::join([environment]::newline,$c);
         \[void]$executioncontext.invokecommand.newscriptblock($c)
         \}
     \}\"
 elseif has('unix') || has('win32unix')
-    set makeprg=pwsh\ -NoProfile\ -command\ \"&{
+    set makeprg=pwsh\ -NoProfile\ -NoLogo\ -NonInteractive\ -command\ \"&{
           \trap{\\$_.tostring\();continue}&{
           \\\$c=gc\ '%';\\$c=[string]::join([environment]::newline,\\$c);
           \[void]\\$executioncontext.invokecommand.newscriptblock(\\$c)
