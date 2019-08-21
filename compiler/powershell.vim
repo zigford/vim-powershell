@@ -19,18 +19,16 @@ set cpo&vim
 if has('win32')
     set makeprg=powershell\ -NoProfile\ -NoLogo\ -NonInteractive\ -command\ \"&{
         \trap{$_.tostring();continue}&{
-        \$c=gc\ '%';$c=[string]::join([environment]::newline,$c);
-        \[void]$executioncontext.invokecommand.newscriptblock($c)
+        \[void]$executioncontext.invokecommand.invokescript('%')
         \}
     \}\"
 elseif has('unix') || has('win32unix')
     set makeprg=pwsh\ -NoProfile\ -NoLogo\ -NonInteractive\ -command\ \"&{
-          \trap{\\$_.tostring\();continue}&{
-          \\\$c=gc\ '%';\\$c=[string]::join([environment]::newline,\\$c);
-          \[void]\\$executioncontext.invokecommand.newscriptblock(\\$c)
+          \trap{\\$_.tostring();continue}&{
+          \[void]\\$executioncontext.invokecommand.invokescript('%')
           \}
           \}\"
 endif
 
 silent CompilerSet makeprg
-silent CompilerSet errorformat=%EAt\ line:%l\ char:%c,%-C+%.%#,%Z%m,%-G\\s%#
+silent CompilerSet errorformat=%EAt\ %f:%l\ char:%c,%-C+%.%#,%Z%m,%-G\\s%#
