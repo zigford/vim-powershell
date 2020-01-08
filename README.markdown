@@ -20,6 +20,7 @@ Changes from vim-ps1
 * Renamed filetype from ps1 to powershell
 * Replaced indentation script with script from [Lior Elia][5].
 * Added compiler settings, so a powershell script can be parsed with `:make`
+* Added a program to look up keywords by hitting the `K` key, see `:help K`
 
 Thanks to Lior Elia for the indentation script and Enno Nagel for the
 suggestions on how to setup errorformat and makeprg in a filetype plugin. See
@@ -28,7 +29,7 @@ suggestions on how to setup errorformat and makeprg in a filetype plugin. See
 Original Readme
 ---------------
 
-If you are a Windows PowerShell user who uses Vim or Gvim for editing scripts, 
+If you are a Windows PowerShell user who uses Vim or Gvim for editing scripts,
 then this plugin is for you.
 
 It provides nice syntax coloring and indenting for PowerShell (.ps1) files,
@@ -55,7 +56,7 @@ Or even better, use [pathogen.vim][1] and simply pull it in like this:
 Folding
 -------
 
-The powershell syntax file provides syntax folding for script blocks and digital 
+The powershell syntax file provides syntax folding for script blocks and digital
 signatures in scripts.
 
 When 'foldmethod' is set to "syntax" then function script blocks will be
