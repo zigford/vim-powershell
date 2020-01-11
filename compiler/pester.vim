@@ -7,7 +7,7 @@
 " Vim Script Page:    TBA
 "
 if exists('current_compiler') | finish | endif
-    let current_compiler = 'pwsh'
+    let current_compiler = 'pester'
 
 if exists(':CompilerSet') != 2                " older Vim always used :setlocal
     command -nargs=* CompilerSet setlocal <args>
@@ -17,18 +17,10 @@ let s:cpo_save = &cpo
 set cpo&vim
 
 if executable('powershell')
-    set makeprg=powershell\ -NoProfile\ -NoLogo\ -NonInteractive\ -command\ \"&{
-        \trap{$_.tostring();continue}&{
-        \[void]$executioncontext.invokecommand.invokescript('%')
-        \}
-    \}\"
+    set makeprg=powershell\ -NoProfile\ -NoLogo\ -NonInteractive\ -command\ invoke-psake
 elseif executable('pwsh')
-    set makeprg=pwsh\ -NoProfile\ -NoLogo\ -NonInteractive\ -command\ \"&{
-          \trap{\\$_.tostring();continue}&{
-          \[void]\\$executioncontext.invokecommand.invokescript('%')
-          \}
-          \}\"
+    set makeprg=pwsh\ -NoProfile\ -NoLogo\ -NonInteractive\ -command\ invoke-psake
 endif
 
 silent CompilerSet makeprg
-silent CompilerSet errorformat=%EAt\ %f:%l\ char:%c,%-C+%.%#,%Z%m,%-G\\s%#
+silent CompilerSet errorformat=%f:%l:%c:%m,%f:%m
