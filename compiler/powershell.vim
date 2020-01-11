@@ -1,7 +1,7 @@
 " Vim compiler plugin file
 " Language:           Windows PowerShell
 " Maintainer:         Jesse Harris <jesse@zigford.org>
-" Contibuter:         Enno Nagel
+" Contributer:         Enno Nagel
 " Version:            3.00
 " Project Repository: https://github.com/zigford/vim-powershell
 " Vim Script Page:    TBA
@@ -16,13 +16,13 @@ endif
 let s:cpo_save = &cpo
 set cpo&vim
 
-if has('win32')
+if executable('powershell')
     set makeprg=powershell\ -NoProfile\ -NoLogo\ -NonInteractive\ -command\ \"&{
         \trap{$_.tostring();continue}&{
         \[void]$executioncontext.invokecommand.invokescript('%')
         \}
     \}\"
-elseif has('unix') || has('win32unix')
+elseif executable('pwsh')
     set makeprg=pwsh\ -NoProfile\ -NoLogo\ -NonInteractive\ -command\ \"&{
           \trap{\\$_.tostring();continue}&{
           \[void]\\$executioncontext.invokecommand.invokescript('%')
