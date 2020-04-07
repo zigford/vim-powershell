@@ -22,12 +22,12 @@ if has('win32')
         \[void]$executioncontext.invokecommand.invokescript('%')
         \}
     \}\"
-elseif has('unix') || has('win32unix')
-    set makeprg=pwsh\ -NoProfile\ -NoLogo\ -NonInteractive\ -command\ \"&{
+elseif has('unix')
+    set makeprg=pwsh\ -NoProfile\ -NoLogo\ -NonInteractive\ -command\ "&{
           \trap{\\$_.tostring();continue}&{
           \[void]\\$executioncontext.invokecommand.invokescript('%')
           \}
-          \}\"
+          \}"
 endif
 
 silent CompilerSet makeprg
